@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="85dp"
         android:orientation="horizontal">
 
         <ImageButton
@@ -28,7 +28,8 @@
             android:background="@android:color/background_light"
             android:text="Cocktail"
             android:textAlignment="center"
-            android:textSize="40sp"
+            android:textColor="@android:color/background_dark"
+            android:textSize="45sp"
             android:textStyle="bold|italic" />
 
         <ImageButton
@@ -71,6 +72,7 @@
                 android:text="Today's Bar"
                 android:textAlignment="center"
                 android:textAllCaps="false"
+                android:textColor="@android:color/background_dark"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -89,6 +91,7 @@
                 android:background="@android:color/background_light"
                 android:text="식당이름"
                 android:textAlignment="center"
+                android:textColor="@android:color/holo_purple"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -104,6 +107,7 @@
                 android:background="@android:color/background_light"
                 android:text="Today's Cocktail"
                 android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -122,13 +126,14 @@
                 android:background="@android:color/background_light"
                 android:text="칵테일 이름"
                 android:textAlignment="center"
+                android:textColor="@android:color/holo_green_light"
                 android:textSize="24sp" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="462dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
