@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/menu_btn"
+            android:layout_width="72dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/background_light"
+            android:onClick="clcik_menu"
+            android:scaleType="centerInside"
+            android:src="@drawable/menu" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/background_light"
+            android:text="Cocktail"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:textStyle="bold|italic" />
+
+        <ImageButton
+            android:id="@+id/main_map_btn"
+            android:layout_width="65dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/background_light"
+            android:onClick="click_map"
+            android:scaleType="centerInside"
+            android:src="@drawable/map0" />
+
+        <ImageButton
+            android:id="@+id/main_search_btn"
+            android:layout_width="65dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/background_light"
+            android:onClick="click_search"
+            android:scaleType="centerInside"
+            android:src="@drawable/search0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/background_light"
+                android:text="Today's Bar"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/today_bar_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@android:color/background_light"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bar2" />
+
+            <TextView
+                android:id="@+id/today_bar_tv"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/background_light"
+                android:text="식당이름"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/background_light"
+                android:text="Today's Cocktail"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/today_cocktail_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@android:color/background_light"
+                android:scaleType="fitCenter"
+                android:src="@drawable/cocktail1" />
+
+            <TextView
+                android:id="@+id/today_cocktail_tv"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/background_light"
+                android:text="칵테일 이름"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/main_bar_btn"
+                android:layout_width="190dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:background="#9c17f8f8"
+                android:onClick="click_bar"
+                android:scaleType="centerInside"
+                android:src="@drawable/bar" />
+
+            <ImageButton
+                android:id="@+id/main_cocktail_btn"
+                android:layout_width="190dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:background="#fef05d"
+                android:onClick="click_cocktail"
+                android:scaleType="centerInside"
+                android:src="@drawable/cocktail" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/main_rank_btn"
+                android:layout_width="190dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:background="#ff4081"
+                android:onClick="click_rank"
+                android:scaleType="centerInside"
+                android:src="@drawable/rank" />
+
+            <ImageButton
+                android:id="@+id/main_recipe_btn"
+                android:layout_width="190dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:background="#45ff4e"
+                android:onClick="click_recipe"
+                android:scaleType="centerInside"
+                android:src="@drawable/recipe" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/background_light"
+            android:onClick="click_back"
+            android:scaleType="centerInside"
+            android:src="@drawable/back1" />
+
+        <ImageButton
+            android:id="@+id/home_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/background_light"
+            android:onClick="click_home"
+            android:scaleType="centerInside"
+            android:src="@drawable/home1" />
+
+        <ImageButton
+            android:id="@+id/set_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/background_light"
+            android:onClick="click_set"
+            android:scaleType="centerInside"
+            android:src="@drawable/set1" />
+
+    </LinearLayout>
+
+</LinearLayout>
