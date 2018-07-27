@@ -55,7 +55,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -128,7 +128,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="462dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -139,7 +139,7 @@
             <ImageButton
                 android:id="@+id/main_bar_btn"
                 android:layout_width="190dp"
-                android:layout_height="200dp"
+                android:layout_height="225dp"
                 android:layout_weight="1"
                 android:background="#9c17f8f8"
                 android:onClick="click_bar"
@@ -149,7 +149,7 @@
             <ImageButton
                 android:id="@+id/main_cocktail_btn"
                 android:layout_width="190dp"
-                android:layout_height="200dp"
+                android:layout_height="225dp"
                 android:layout_weight="1"
                 android:background="#fef05d"
                 android:onClick="click_cocktail"
@@ -166,7 +166,7 @@
             <ImageButton
                 android:id="@+id/main_rank_btn"
                 android:layout_width="190dp"
-                android:layout_height="200dp"
+                android:layout_height="225dp"
                 android:layout_weight="1"
                 android:background="#ff4081"
                 android:onClick="click_rank"
@@ -176,7 +176,7 @@
             <ImageButton
                 android:id="@+id/main_recipe_btn"
                 android:layout_width="190dp"
-                android:layout_height="200dp"
+                android:layout_height="225dp"
                 android:layout_weight="1"
                 android:background="#45ff4e"
                 android:onClick="click_recipe"
@@ -189,7 +189,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@android:dimen/app_icon_size"
         android:orientation="horizontal">
 
         <ImageButton
