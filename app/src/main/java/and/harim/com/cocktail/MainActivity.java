@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     }//상단 메뉴 클릭시
 
     public void click_map(View view) {
+        Intent map = new Intent(this,MapsActivity.class);
+        startActivity(map);
     }//상단 지도 클릭시
 
     public void click_search(View view) {
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-    }
+    }//뒤로가기 버튼 리스너(종료)
 
     public void click_home(View view) {
         Intent home = new Intent(this, MainActivity.class);
@@ -81,5 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }//하단 홈 버튼
 
     public void click_set(View view) {
+        Intent menu = new Intent(this,MenuActivity.class);
+        startActivity(menu);
     }//하단 메뉴 버튼
 }
