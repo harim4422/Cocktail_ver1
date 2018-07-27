@@ -1,6 +1,7 @@
 package and.harim.com.cocktail;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,4 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void click_recipe(View view) {
     }//레시피 메뉴 클릭시
+
+    public void click_back(View view) {
+
+    }
+
+    public void click_home(View view) {
+    }
+
+    public void click_set(View view) {
+    }
 }
