@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void click_home(View view) {
+        Intent home = new Intent(this, MainActivity.class);
+        startActivity(home);
     }
 
     public void click_set(View view) {
