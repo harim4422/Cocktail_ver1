@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent load = new Intent(this,LoadingActivity.class);
+        startActivity(load);
     } //메인 실행시 메소드
 
     public void clcik_menu(View view) {
