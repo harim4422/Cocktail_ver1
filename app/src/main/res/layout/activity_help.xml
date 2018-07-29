@@ -9,9 +9,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
         android:gravity="top"
         android:text="HELP"
         android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -27,11 +29,12 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/help_mail"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/background_light"
+                android:onClick="click_mail"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/mail" />
 
@@ -80,7 +83,7 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/menu_facebook_btn"
+                android:id="@+id/help_facebook_btn"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -90,7 +93,7 @@
                 android:src="@drawable/fb1" />
 
             <ImageButton
-                android:id="@+id/menu_set_btn"
+                android:id="@+id/help_set_btn"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

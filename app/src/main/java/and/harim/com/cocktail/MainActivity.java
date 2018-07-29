@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     }//하단 홈 버튼
 
     public void click_set(View view) {
-        Intent menu = new Intent(this,MenuActivity.class);
+        Intent menu = new Intent(this,SettingsActivity.class);
         startActivity(menu);
     }//하단 메뉴 버튼
 }

@@ -5,35 +5,55 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_purple"
+        android:text="Bar 찾기"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+        android:layout_height="775dp"
+        android:orientation="vertical">
 
-        <Spinner
-            android:id="@+id/bar_spinner_1"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/bar_spinner_1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@android:color/background_light" />
+
+            <Spinner
+                android:id="@+id/bar_spinner_2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@android:color/background_light" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/bar_lv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:scrollbars="vertical">
 
-        <Spinner
-            android:id="@+id/bar_spinner_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+        </ListView>
     </LinearLayout>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="731dp"
-        android:scrollbars="vertical">
-
-    </ListView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@android:dimen/app_icon_size"
-        android:gravity="bottom"
+        android:gravity="bottom|end"
         android:orientation="horizontal">
 
         <ImageButton

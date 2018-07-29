@@ -1,7 +1,9 @@
 package and.harim.com.cocktail;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,6 +25,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
+    public void click_back(View view) {
+        Intent home = new Intent(this, MainActivity.class);
+        startActivity(home);
+    }//하단 뒤로가기 버튼 (종료)
+
+    public void click_home(View view) {
+        Intent home = new Intent(this, MainActivity.class);
+        startActivity(home);
+    }//하단 홈 버튼
+
+    public void click_set(View view) {
+        Intent set = new Intent(this,SettingsActivity.class);
+        startActivity(set);
+    }//세팅 연결
 
 
     /**

@@ -34,10 +34,7 @@ public class MenuActivity extends AppCompatActivity {
     public void click_recipe(View view) {
     }//나만의 요리법 연결
 
-    public void click_set(View view) {
-        Intent set = new Intent(this,SettingsActivity.class);
-        startActivity(set);
-    }//세팅 연결
+
 
     public void click_help(View view) {
         Intent help = new Intent(this,HelpActivity.class);
@@ -53,5 +50,10 @@ public class MenuActivity extends AppCompatActivity {
         Intent home = new Intent(this, MainActivity.class);
         startActivity(home);
     }//하단 홈 버튼
+
+    public void click_set(View view) {
+        Intent set = new Intent(this,SettingsActivity.class);
+        startActivity(set);
+    }//세팅 연결
 
 }

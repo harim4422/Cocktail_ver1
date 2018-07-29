@@ -7,12 +7,23 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:text="칵테일 정보"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="50sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,7 +83,10 @@
                     android:id="@+id/textView7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/holo_blue_bright"
                     android:text="만드는법"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
@@ -93,8 +107,10 @@
                         android:layout_width="150dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:background="@android:color/holo_orange_light"
                         android:text="만드는법 동영상"
                         android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
@@ -103,7 +119,7 @@
                         android:layout_width="5dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@android:color/background_light"
+                        android:background="@android:color/holo_orange_light"
                         android:scaleType="centerInside"
                         android:src="@drawable/youtube" />
 
@@ -113,14 +129,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="249dp"
+                android:layout_height="240dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/holo_green_light"
                     android:text="맛집"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
@@ -130,42 +149,42 @@
                     android:layout_height="234dp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@android:dimen/app_icon_size"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/back_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="click_back"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/back1" />
-
-                <ImageButton
-                    android:id="@+id/home_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="click_home"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/home1" />
-
-                <ImageButton
-                    android:id="@+id/set_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="click_set"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/set1" />
-
-            </LinearLayout>
-
         </LinearLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@android:dimen/app_icon_size"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="click_back"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back1" />
+
+        <ImageButton
+            android:id="@+id/home_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="click_home"
+            android:scaleType="fitCenter"
+            android:src="@drawable/home1" />
+
+        <ImageButton
+            android:id="@+id/set_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="click_set"
+            android:scaleType="fitCenter"
+            android:src="@drawable/set1" />
+
+    </LinearLayout>
 
 </LinearLayout>
