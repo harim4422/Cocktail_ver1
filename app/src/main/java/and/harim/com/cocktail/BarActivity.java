@@ -78,7 +78,9 @@ public class BarActivity extends AppCompatActivity {
 
         bar_lv =(ListView)findViewById(R.id.bar_lv);
         bar_list= new ArrayList<>();
+
         bar_adp = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,bar_list);
+
         bar_lv.setAdapter(bar_adp);
 
        /* BarAsyncTask bat = new BarAsyncTask();

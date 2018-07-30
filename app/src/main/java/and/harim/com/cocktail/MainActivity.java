@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     }//상단 지도 클릭시
 
     public void click_search(View view) {
+        Intent search = new Intent(this,SearchActivity.class);
+        startActivity(search);
     }//상단 검색 클릭시
 
     public void click_bar(View view) {
