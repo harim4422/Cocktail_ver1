@@ -1,11 +1,13 @@
 package and.harim.com.cocktail;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -24,7 +26,7 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_search);
 
         editSearch = (EditText) findViewById(R.id.editSearch);
         listView = (ListView) findViewById(R.id.listView);
@@ -36,7 +38,7 @@ public class SearchActivity extends AppCompatActivity {
         settingList();
 
         // 리스트의 모든 데이터를 arraylist에 복사한다.// list 복사본을 만든다.
-        arraylist = new ArrayList<String>();
+        arraylist = new ArrayList<>();
         arraylist.addAll(list);
 
         // 리스트에 연동될 아답터를 생성한다.
@@ -102,4 +104,18 @@ public class SearchActivity extends AppCompatActivity {
         list.add("3 test");
         list.add("4 test");
     }
+    public void click_back(View view) {
+        Intent home = new Intent(this, MainActivity.class);
+        startActivity(home);
+    }//하단 뒤로가기 버튼 (종료)
+
+    public void click_home(View view) {
+        Intent home = new Intent(this, MainActivity.class);
+        startActivity(home);
+    }//하단 홈 버튼
+
+    public void click_set(View view) {
+        Intent set = new Intent(this,SettingsActivity.class);
+        startActivity(set);
+    }//세팅 연결
 }

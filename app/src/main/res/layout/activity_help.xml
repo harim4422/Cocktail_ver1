@@ -39,14 +39,13 @@
                 app:srcCompat="@drawable/mail" />
 
             <ImageButton
-                android:id="@+id/menu_cocktail_btn"
+                android:id="@+id/kakao_btn"
                 android:layout_width="50dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/background_light"
-                android:onClick="click_cocktail"
-                android:scaleType="centerInside"
-                android:src="@drawable/cocktail0" />
+                android:onClick="click_kakao"
+                app:srcCompat="@drawable/kakao" />
 
         </LinearLayout>
 
@@ -70,7 +69,7 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cocktail"
+                android:text="카카오톡 플러스친구"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold" />
