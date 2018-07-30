@@ -59,7 +59,12 @@ public class BarActivity extends AppCompatActivity {
                 this, android.R.layout.simple_spinner_item,noting);
         not_adp.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);
-
+        //리스트 뷰 준비
+        bar_lv =(ListView)findViewById(R.id.bar_lv);
+        bar_list= new ArrayList<>();
+        settingBarList();
+        bar_adp = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,bar_list);
+        bar_lv.setAdapter(bar_adp);
         //스피너1 선택시
         bar_spinner_1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -76,17 +81,11 @@ public class BarActivity extends AppCompatActivity {
         });
 
 
-        bar_lv =(ListView)findViewById(R.id.bar_lv);
-        bar_list= new ArrayList<>();
-
-        bar_adp = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,bar_list);
-
-        bar_lv.setAdapter(bar_adp);
-
-       /* BarAsyncTask bat = new BarAsyncTask();
-        bat.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);*/
 
     }
+
+    private void settingBarList(){}
+
     public void click_back(View view) {
         Intent home = new Intent(this, MainActivity.class);
         startActivity(home);
@@ -102,28 +101,4 @@ public class BarActivity extends AppCompatActivity {
         startActivity(set);
     }//세팅 연결
 
-    /*private class BarAsyncTask extends AsyncTask<Void,String,Void>{
-        @Override
-        protected Void doInBackground(Void... voids) {
-            String url ="https://cafe.naver.com/cocktailapp?iframe_url=/ArticleList.nhn%3Fsearch.clubid=29487548%26search.menuid=4%26search.boardtype=L";
-
-            try {
-                Document doc = Jsoup.connect(url).get();
-                Elements datas = doc.select("span");
-                for(Element el:datas){
-                    String title = el.select("a").get(0).text();
-                    publishProgress(title);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-        @Override
-        protected void onProgressUpdate(String... values) {
-            super.onProgressUpdate(values);
-            //어댑터에 데이터 추가시 데이터 원본 수정, UI갱신
-            bar_adp.add(values[0]);
-        }
-    }*/
 }
