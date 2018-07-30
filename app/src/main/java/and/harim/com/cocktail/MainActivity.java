@@ -7,8 +7,14 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    ImageView today_bar_image;
+    ImageView today_cocktail_image;
+    TextView today_bar_tv;
+    TextView today_cocktail_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +22,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent load = new Intent(this,LoadingActivity.class);
         startActivity(load);
+
+        today_bar_image = (ImageView)findViewById(R.id.today_bar_image);
+        today_cocktail_image = (ImageView)findViewById(R.id.today_cocktail_image);
+        today_bar_tv =(TextView)findViewById(R.id.today_bar_tv);
+        today_cocktail_tv =(TextView)findViewById(R.id.today_cocktail_tv);
+
+        today_bar_image.setImageResource(R.drawable.dockiljuteak);
+        today_cocktail_image.setImageResource(R.drawable.applemartini);
+        today_bar_tv.setText("독일주택");
+        today_cocktail_tv.setText("Applemartini");
+        /*today_bar_image.setOnClickListener();*/
+
+
+
     } //메인 실행시 메소드
 
     public void clcik_menu(View view) {
