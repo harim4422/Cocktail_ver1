@@ -2,37 +2,31 @@ package and.harim.com.cocktail;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import java.io.IOException;
-import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -147,37 +141,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         switch(v.getId())
         {
-            case R.id.B_search:
-                EditText tf_location =  findViewById(R.id.TF_location);
-                String location = tf_location.getText().toString();
-                List<Address> addressList;
 
 
-                if(!location.equals(""))
-                {
-                    Geocoder geocoder = new Geocoder(this);
 
-                    try {
-                        addressList = geocoder.getFromLocationName(location, 5);
 
-                        if(addressList != null)
-                        {
-                            for(int i = 0;i<addressList.size();i++)
-                            {
-                                LatLng latLng = new LatLng(addressList.get(i).getLatitude() , addressList.get(i).getLongitude());
-                                MarkerOptions markerOptions = new MarkerOptions();
-                                markerOptions.position(latLng);
-                                markerOptions.title(location);
-                                mMap.addMarker(markerOptions);
-                                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                                mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
-                            }
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                break;
             case R.id.B_hopistals:
                 mMap.clear();
                 String hospital = "hospital";
@@ -189,28 +156,84 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Toast.makeText(MapsActivity.this, "Showing Nearby Hospitals", Toast.LENGTH_SHORT).show();
                 break;
 
-
-            case R.id.B_schools:
+            case R.id.B_cocktail:
                 mMap.clear();
-                String school = "school";
-                url = getUrl(latitude, longitude, school);
-                dataTransfer[0] = mMap;
-                dataTransfer[1] = url;
 
-                getNearbyPlacesData.execute(dataTransfer);
-                Toast.makeText(MapsActivity.this, "Showing Nearby Schools", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.B_restaurants:
-                mMap.clear();
-                String resturant = "restuarant";
-                url = getUrl(latitude, longitude, resturant);
-                dataTransfer[0] = mMap;
-                dataTransfer[1] = url;
+                // Add a marker in Sydney and move the camera
+                LatLng Germanyhouse = new LatLng(37.582915, 127.000523);
+                mMap.addMarker(new MarkerOptions().position(Germanyhouse).title("독일주택"));
 
-                getNearbyPlacesData.execute(dataTransfer);
-                Toast.makeText(MapsActivity.this, "Showing Nearby Restaurants", Toast.LENGTH_SHORT).show();
+
+                LatLng sweetlife = new LatLng(37.584115,  126.997011);
+                mMap.addMarker(new MarkerOptions().position(sweetlife).title("인생의단맛"));
+
+                LatLng ournight = new LatLng(37.583052,  126.998188);
+                mMap.addMarker(new MarkerOptions().position(ournight).title("우리의 밤"));
+
+                LatLng beetles = new LatLng(37.581642,  127.003729);
+                mMap.addMarker(new MarkerOptions().position(beetles).title("비틀즈"));
+
+                LatLng sunshineboat = new LatLng(37.584724,  127.001035);
+                mMap.addMarker(new MarkerOptions().position(sunshineboat).title("햇살돛단배"));
+
+                LatLng doriangray = new LatLng(37.582021,  127.000086);
+                mMap.addMarker(new MarkerOptions().position(doriangray).title("도리안그레이"));
+
+                LatLng banju = new LatLng(37.583000,  127.002811);
+                mMap.addMarker(new MarkerOptions().position(banju).title("반저"));
+
+                LatLng mixnmolt = new LatLng(37.583084,  126.998127);
+                mMap.addMarker(new MarkerOptions().position(mixnmolt).title("믹스앤몰트"));
+
+                LatLng queen101 = new LatLng(37.583071,  126.998151);
+                mMap.addMarker(new MarkerOptions().position(queen101).title("퀸101"));
+
+                LatLng monk = new LatLng(37.581706,  127.004714);
+                mMap.addMarker(new MarkerOptions().position(monk).title("수도원"));
+
+                LatLng glenco = new LatLng(37.579499,  127.006393);
+                mMap.addMarker(new MarkerOptions().position(glenco).title("더글랜코"));
+
+                LatLng humber = new LatLng(37.582278,  126.999406);
+                mMap.addMarker(new MarkerOptions().position(humber).title("Humber"));
+
+                LatLng spaceplato = new LatLng(37.582676,  127.000621);
+                mMap.addMarker(new MarkerOptions().position(spaceplato).title("스페이스플라토"));
+
+                LatLng namu = new LatLng(37.581971,  126.999772);
+                mMap.addMarker(new MarkerOptions().position(namu).title("나무요일"));
+
+                LatLng chako = new LatLng(37.583964,  126.997471);
+                mMap.addMarker(new MarkerOptions().position(chako).title("챠코"));
+
+                LatLng comfortzone = new LatLng(37.583085,  126.998172);
+                mMap.addMarker(new MarkerOptions().position(comfortzone).title("Comfort Zone"));
+
+                LatLng eightstreet = new LatLng(37.582113,  127.002512);
+                mMap.addMarker(new MarkerOptions().position(eightstreet).title("에잇스트리트"));
+
+                LatLng witchkitchen = new LatLng(37.583463,  127.000482);
+                mMap.addMarker(new MarkerOptions().position(witchkitchen).title("마녀주방"));
+
+                LatLng aperfactday = new LatLng(37.583552,  126.998047);
+                mMap.addMarker(new MarkerOptions().position(aperfactday).title("A perfect day 찡쪽바"));
+
+                LatLng mugnglass = new LatLng(37.584389,  126.996440);
+                mMap.addMarker(new MarkerOptions().position(mugnglass).title("머그앤글래스"));
+
+                Toast.makeText(MapsActivity.this, "Cocktail & Wine Bar", Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
                 break;
-            case R.id.B_to:
+
+
+
+
+
         }
     }
 
@@ -223,7 +246,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         googlePlaceUrl.append("&radius="+PROXIMITY_RADIUS);
         googlePlaceUrl.append("&type="+nearbyPlace);
         googlePlaceUrl.append("&sensor=true");
-        googlePlaceUrl.append("&key="+"AIzaSyBNxgmVO1gaTuUfBnRVfviy13mYBZOmECw");
+        googlePlaceUrl.append("&key="+"AIzaSyBLEPBRfw7sMb73Mr88L91Jqh3tuE4mKsE");
 
         Log.d("MapsActivity", "url = "+googlePlaceUrl.toString());
 

@@ -15,7 +15,6 @@ public class CocktailInfoActivity extends AppCompatActivity {
     TextView cocktail_name_tv;
     ImageView wofy_image;
     ImageView recipe_image;
-    ListView cocktail_bar_lv;
     String youtube="";
 
     @Override
@@ -27,7 +26,6 @@ public class CocktailInfoActivity extends AppCompatActivity {
         cocktail_name_tv=(TextView)findViewById(R.id.cocktail_name_tv);
         wofy_image =(ImageView)findViewById(R.id.wofy_image);
         recipe_image=(ImageView)findViewById(R.id.recipe_image);
-        cocktail_bar_lv =(ListView)findViewById(R.id.cocktail_bar_lv);
 
         CocktailItem ckitem =(CocktailItem)getIntent().getSerializableExtra("cock");
         cocktail_image.setImageResource(ckitem.getResId());

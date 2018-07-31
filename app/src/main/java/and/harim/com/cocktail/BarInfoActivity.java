@@ -35,14 +35,13 @@ public class BarInfoActivity extends AppCompatActivity {
 
         //BarActivity에서 리스트뷰 데이터 item 받아오기
         BarItem item = (BarItem)getIntent().getSerializableExtra("item");
-        bar_image.setImageResource(item.getResId());
-        bar_name_tv.setText(item.getName());
-        bar_address_tv.setText(item.getAddress());
-        menu_adp = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,item.getMenu());
-        menu_lv.setAdapter(menu_adp);
-
-
-
+        if(item!=null) {
+            bar_image.setImageResource(item.getResId());
+            bar_name_tv.setText(item.getName());
+            bar_address_tv.setText(item.getAddress());
+            menu_adp = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, item.getMenu());
+            menu_lv.setAdapter(menu_adp);
+        }
     }
     public void click_back(View view) {
         Intent bar = new Intent(this, BarActivity.class);

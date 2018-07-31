@@ -1,6 +1,7 @@
 package and.harim.com.cocktail;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -35,6 +39,7 @@ public class BarActivity extends AppCompatActivity {
     String[] seoul ={"종로구"};
     String[] noting={"업데이트 준비중 입니다.."};
     BarAdapter barAdapter;
+    ArrayList<BarItem> bar_ary;
 
 
 

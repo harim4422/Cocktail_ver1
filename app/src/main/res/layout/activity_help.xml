@@ -92,6 +92,15 @@
                 android:src="@drawable/fb1" />
 
             <ImageButton
+                android:id="@+id/team_btn"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:onClick="click_team"
+                app:srcCompat="@drawable/team2" />
+
+            <ImageButton
                 android:id="@+id/help_set_btn"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
@@ -119,6 +128,16 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/textView3"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Our Team"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/textView14"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
@@ -134,7 +153,7 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@Copyright 3"
+            android:text="@Copyright 멀티칵테일"
             android:textAlignment="center"
             android:textColor="@android:color/holo_purple"
             android:textSize="30sp"

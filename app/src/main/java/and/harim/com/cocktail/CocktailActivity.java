@@ -41,7 +41,6 @@ public class CocktailActivity extends AppCompatActivity {
         };
         cocktail_lv.setOnItemClickListener(cocktaillistClickListener);
 
-
     }
     public class CocktailAdapter extends BaseAdapter {
         ArrayList<CocktailItem> items = new ArrayList<CocktailItem>();

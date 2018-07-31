@@ -49,4 +49,9 @@ public class HelpActivity extends AppCompatActivity {
         Intent myIntent = new Intent (Intent.ACTION_VIEW, Uri.parse("http://pf.kakao.com/_fGTgC"));
         startActivity(myIntent);
     }
+
+    public void click_team(View view) {
+        Intent team = new Intent(this, MadeBy.class);
+        startActivity(team);
+    }
 }
