@@ -1,52 +1,52 @@
 package and.harim.com.cocktail;
 
-public class CocktailItem {
+import java.io.Serializable;
+
+public class CocktailItem implements Serializable {
 
     String name;
-    String wofy;
-    String method;
+    int wofy_id;
+    int recipe_id;
     int resId;
+    String video;
+    String[] bar;
 
     public CocktailItem(String name, int resId) {
         this.name = name;
         this.resId = resId;
     }
-    public CocktailItem(String name,String wofy,String method, int resId) {
-        this.name = name;
-        this.wofy=wofy;
-        this.method=method;
-        this.resId = resId;
-    }
 
-    public String getMethod() {
-        return method;
+    public int getRecipe_id() {
+        return recipe_id;
     }
-
-    public void setMethod(String method) {
-        this.method = method;
+    public void setRecipe_id(int recipe_id) {
+        this.recipe_id = recipe_id;
     }
 
     public int getResId() {
         return resId;
     }
-
     public void setResId(int resId) {
         this.resId = resId;
     }
 
-    public String getWofy() {
-        return wofy;
+    public int getWofy_id() {
+        return wofy_id;
     }
-
-    public void setWofy(String wofy) {
-        this.wofy = wofy;
+    public void setWofy_id(int wofy_id) {
+        this.wofy_id = wofy_id;
     }
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getVideo(){return video;}
+    public void setVideo(String video){this.video=video;}
+
+    public String[] getBar(){return bar;}
+    public void setBar(String[] bar){this.bar=bar;}
 }
