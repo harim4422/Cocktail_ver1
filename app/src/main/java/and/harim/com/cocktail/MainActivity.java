@@ -2,6 +2,7 @@ package and.harim.com.cocktail;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -69,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
     } //순위 메뉴 클릭시
 
     public void click_recipe(View view) {
+        Intent myIntent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://cafe.naver.com/multicocktail"));
+        startActivity(myIntent);
     }//레시피 메뉴 클릭시
 
     public void click_back(View view) {

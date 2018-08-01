@@ -1,7 +1,10 @@
 package and.harim.com.cocktail;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +22,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -27,6 +31,10 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -42,10 +50,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public static final int REQUEST_LOCATION_CODE = 99;
     int PROXIMITY_RADIUS = 10000;
     double latitude,longitude;
+    LatLng bus;
+    String barname1;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        String ad = (String)getIntent().getStringExtra("add");
+        if(ad!=null){
+
+
+
+            Geocoder mCoder = new Geocoder(this);
+            try{
+                List<Address> addr = mCoder.getFromLocationName(ad, 1);
+                Double Lat =addr.get(0).getLatitude();
+                Double Lon =addr.get(0).getLongitude();
+                bus = new LatLng(Lat, Lon);
+                barname1 = (String) getIntent().getStringExtra("barname");
+
+
+
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } else{
+            bus = new LatLng(37.582037, 127.001892);
+        }
+
+
+
+
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {
@@ -93,6 +136,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+
+        mMap.addMarker(new MarkerOptions().position(bus).title(barname1));
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(
+                bus   // 위도, 경도
+        ));
+
+        CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
+        googleMap.animateCamera(zoom);
+
+
+
+
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             bulidGoogleApiClient();

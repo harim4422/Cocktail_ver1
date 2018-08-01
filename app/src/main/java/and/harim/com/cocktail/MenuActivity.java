@@ -32,6 +32,8 @@ public class MenuActivity extends AppCompatActivity {
     }//칵테일 버튼 연결
 
     public void click_recipe(View view) {
+        Intent myIntent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://cafe.naver.com/multicocktail"));
+        startActivity(myIntent);
     }//나만의 요리법 연결
 
 
