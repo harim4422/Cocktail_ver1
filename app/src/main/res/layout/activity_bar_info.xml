@@ -130,12 +130,18 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-                <ListView
-                    android:id="@+id/epilogue_lv"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="253dp">
+                    android:layout_height="253dp"
+                    android:orientation="horizontal">
 
-                </ListView>
+                    <ListView
+                        android:id="@+id/ep_lv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </ListView>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -143,8 +149,17 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/epilogue_et"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/ep_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="Name" />
+
+                    <EditText
+                        android:id="@+id/ep_et"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
@@ -152,11 +167,12 @@
                         android:inputType="textPersonName" />
 
                     <Button
-                        android:id="@+id/epilogue_btn"
+                        android:id="@+id/ep_resist"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="후기 작성" />
+                        android:onClick="click_resist"
+                        android:text="등록" />
 
                 </LinearLayout>
 

@@ -11,6 +11,8 @@ public class BarItem implements Serializable{
     double score;
     int resId;
     String[] menu;
+    double dnleh;
+    double rudeh;
 
     public BarItem(String name, String address) {
         this.name = name;
@@ -52,4 +54,10 @@ public class BarItem implements Serializable{
 
     public void setMenu(String[] menu){this.menu=menu;}
     public String[] getMenu(){return menu;}
+
+    public void setDnleh(double dnleh){this.dnleh=dnleh;}
+    public double getDnleh(){return  dnleh;}
+
+    public void setRudeh(double rudeh){this.rudeh=rudeh;}
+    public double getRudeh(){return  rudeh;}
 }
