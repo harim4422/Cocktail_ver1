@@ -74,108 +74,39 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_dark"
+                android:text="정보"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="16dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="평점"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/bar_score_tv"
+                <ImageView
+                    android:id="@+id/imageView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="점수"
-                    android:textSize="18sp" />
+                    app:srcCompat="@mipmap/ic_launcher_round" />
 
-                <TextView
-                    android:id="@+id/textView6"
+                <ImageView
+                    android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="/5.0"
-                    android:textSize="18sp" />
+                    app:srcCompat="@mipmap/ic_launcher_round" />
 
-                <Button
-                    android:id="@+id/bar_score_btn"
+                <ImageView
+                    android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="click_score"
-                    android:text="평점주기" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/holo_orange_light"
-                    android:text="후기"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="253dp"
-                    android:orientation="horizontal">
-
-                    <ListView
-                        android:id="@+id/ep_lv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                    </ListView>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/ep_name"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Name" />
-
-                    <EditText
-                        android:id="@+id/ep_et"
-                        android:layout_width="350dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="후기를 작성해 주세요."
-                        android:inputType="textPersonName" />
-
-                    <Button
-                        android:id="@+id/ep_resist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:onClick="click_resist"
-                        android:text="등록" />
-
-                </LinearLayout>
-
+                    app:srcCompat="@mipmap/ic_launcher_round" />
             </LinearLayout>
 
             <LinearLayout

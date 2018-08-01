@@ -1,30 +1,79 @@
-<RelativeLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
 
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Map"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/B_cocktail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/map"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClick"
+        android:text="Cocktail Bar"
+        android:textSize="20sp" />
 
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="700dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/B_hopistals"
-        tools:context="com.example.priyanka.mapsdemo.MapsActivity" />
-
-    <Button
-        android:id="@+id/B_cocktail"
+        tools:context="com.example.priyanka.mapsdemo.MapsActivity"
+        />
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/map"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClick"
-        android:text="Cocktail Bar" />
+        android:layout_height="@android:dimen/app_icon_size"
+        android:gravity="bottom|end"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="click_back"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back1" />
+
+        <ImageButton
+            android:id="@+id/home_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="click_home"
+            android:scaleType="fitCenter"
+            android:src="@drawable/home1" />
+
+        <ImageButton
+            android:id="@+id/set_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="click_set"
+            android:scaleType="fitCenter"
+            android:src="@drawable/set1" />
+
+    </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
