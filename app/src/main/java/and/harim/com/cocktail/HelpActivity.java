@@ -1,18 +1,22 @@
 package and.harim.com.cocktail;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class HelpActivity extends AppCompatActivity {
+
+    TextView hidden_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
+        hidden_btn=(TextView)findViewById(R.id.hidden_btn);
+
     }
     public void click_back(View view) {
         Intent menu = new Intent(this, MenuActivity.class);

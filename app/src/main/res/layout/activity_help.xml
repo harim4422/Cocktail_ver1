@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/background_light"
+        android:fontFamily="cursive"
         android:gravity="top"
         android:text="HELP"
         android:textAlignment="center"
@@ -36,7 +37,7 @@
                 android:background="@android:color/background_light"
                 android:onClick="click_mail"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/mail" />
+                app:srcCompat="@drawable/mail_ic" />
 
             <ImageButton
                 android:id="@+id/kakao_btn"
@@ -59,7 +60,8 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="관리자에게 메일"
+                android:fontFamily="casual"
+                android:text="Help Mail"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -69,7 +71,8 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="카카오톡 플러스친구"
+                android:fontFamily="casual"
+                android:text="Kakao Plus"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -88,8 +91,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/background_light"
                 android:onClick="click_facebook"
-                android:scaleType="centerInside"
-                android:src="@drawable/fb1" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/fb_ic" />
 
             <ImageButton
                 android:id="@+id/team_btn"
@@ -98,7 +101,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/background_light"
                 android:onClick="click_team"
-                app:srcCompat="@drawable/team2" />
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/team_ic" />
 
             <ImageButton
                 android:id="@+id/help_set_btn"
@@ -108,7 +112,7 @@
                 android:background="@android:color/background_light"
                 android:onClick="click_set"
                 android:scaleType="centerInside"
-                android:src="@drawable/set1" />
+                android:src="@drawable/set_ic" />
 
         </LinearLayout>
 
@@ -122,6 +126,7 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:text="FaceBook"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -132,6 +137,7 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:text="Our Team"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -142,6 +148,7 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:text="Setting"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -150,10 +157,11 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/hidden_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@Copyright 멀티칵테일"
+            android:fontFamily="casual"
+            android:text="@Copyright MultiCocktail"
             android:textAlignment="center"
             android:textColor="@android:color/holo_purple"
             android:textSize="30sp"

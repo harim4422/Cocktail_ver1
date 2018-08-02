@@ -66,6 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@android:color/background_light"
+                android:fontFamily="cursive"
                 android:text="Today's Bar"
                 android:textAlignment="center"
                 android:textAllCaps="false"
@@ -86,6 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@android:color/background_light"
+                android:fontFamily="sans-serif"
                 android:text="식당이름"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_purple"
@@ -102,6 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@android:color/background_light"
+                android:fontFamily="cursive"
                 android:text="Today's Cocktail"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_dark"
@@ -121,7 +124,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@android:color/background_light"
-                android:text="칵테일 이름"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="cocktail"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_green_light"
                 android:textSize="24sp" />
@@ -146,7 +150,7 @@
                 android:background="#9c17f8f8"
                 android:onClick="click_bar"
                 android:scaleType="centerInside"
-                android:src="@drawable/bar" />
+                android:src="@drawable/bar_ic" />
 
             <ImageButton
                 android:id="@+id/main_cocktail_btn"
@@ -156,7 +160,7 @@
                 android:background="#fef05d"
                 android:onClick="click_cocktail"
                 android:scaleType="centerInside"
-                android:src="@drawable/cocktail" />
+                android:src="@drawable/cocktail_ic" />
 
         </LinearLayout>
 
@@ -173,7 +177,7 @@
                 android:background="#ff4081"
                 android:onClick="click_rank"
                 android:scaleType="centerInside"
-                android:src="@drawable/rank" />
+                android:src="@drawable/rank1" />
 
             <ImageButton
                 android:id="@+id/main_recipe_btn"
@@ -183,7 +187,7 @@
                 android:background="#45ff4e"
                 android:onClick="click_recipe"
                 android:scaleType="centerInside"
-                android:src="@drawable/recipe" />
+                android:src="@drawable/recipe_ic" />
 
         </LinearLayout>
 

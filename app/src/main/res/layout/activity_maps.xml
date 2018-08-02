@@ -14,10 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_bright"
+        android:fontFamily="casual"
         android:text="Map"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="50sp"
+        android:textSize="45sp"
         android:textStyle="bold" />
 
     <Button

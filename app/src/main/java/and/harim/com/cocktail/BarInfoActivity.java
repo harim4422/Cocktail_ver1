@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import android.content.SharedPreferences;
+import android.location.Geocoder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -48,6 +49,7 @@ public class BarInfoActivity extends AppCompatActivity {
     ArrayList<BarItem> bar_ary;
     BarItem item;
     EpItem ei;
+    private long btnPressTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,26 @@ public class BarInfoActivity extends AppCompatActivity {
 
             ep_adp =new ArrayAdapter<EpItem>(this,android.R.layout.simple_list_item_1,bar_ep);
             ep_lv.setAdapter(ep_adp);
+            ep_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    if (System.currentTimeMillis() > btnPressTime + 2000) {
+                        btnPressTime = System.currentTimeMillis();
+                        Toast.makeText(getApplicationContext(), "1",
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (System.currentTimeMillis() <= btnPressTime + 2000) {
+                        btnPressTime = System.currentTimeMillis();
+                        bar_ep.remove(bar_ep.get(i));
+                        Toast.makeText(getApplicationContext(), "delete",
+                                Toast.LENGTH_SHORT).show();
+                        ep_adp.notifyDataSetChanged();
+                        return;
+                    }
+                }
+            });
+
 
 
             //지도 추가
@@ -113,7 +135,8 @@ public class BarInfoActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode == 1001){
             if(resultCode == Activity.RESULT_OK){
-                LatLng bus = new LatLng(40, 120);
+                Geocoder mCoder = new Geocoder(this);
+                LatLng bus = new LatLng(37.582037, 127.001892);
                 GoogleMap mMap=null;
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(bus));
                 mMap.animateCamera(CameraUpdateFactory.zoomBy(10));
@@ -143,18 +166,22 @@ public class BarInfoActivity extends AppCompatActivity {
         ep_name.setText("");
         ep_et.setText("");
 
-        //로딩
+        /*//로딩
         SharedPreferences pref = getPreferences(MODE_PRIVATE);
         String s = pref.getString("bar_ary",null);
         Type objType = new TypeToken<ArrayList<BarItem>>() {
         }.getType();
         Gson gson = new GsonBuilder().create();
-        bar_ary = gson.fromJson(s, objType);
-        System.out.println("*********"+bar_ary);
-
+        bar_ary = gson.fromJson(s, objType);*/
 
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent bar = new Intent(this, BarInfoActivity.class);
+        bar.putExtra("item",item);
+        setResult(RESULT_OK, bar);
+        finish();
+    }
 
     public void click_back(View view) {
         Intent bar = new Intent(this, BarInfoActivity.class);

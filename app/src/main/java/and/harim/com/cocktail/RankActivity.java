@@ -22,25 +22,36 @@ public class RankActivity extends AppCompatActivity {
     ListView bar_pub_rank_lv;
     RankAdapter radp;
     ArrayList<BarItem> bar_ary;
+    ArrayList<BarItem> bar_ary2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
-        radp = new RankAdapter();
-        bar_pub_rank_lv = (ListView)findViewById(R.id.bar_pub_rank_lv);
-        bar_ary = new ArrayList<BarItem>();
+
+        //로드
         SharedPreferences pref = getPreferences(MODE_PRIVATE);
         String s = pref.getString("bar_ary",null);
         Type objType = new TypeToken<ArrayList<BarItem>>() {
         }.getType();
         Gson gson = new GsonBuilder().create();
         bar_ary = gson.fromJson(s, objType);
+        bar_ary2 = new ArrayList<>();
+        settingRankListView();
         if(bar_ary==null) {
-            bar_ary = new ArrayList<>();
-            settingRankListView();
-            saveBar();
+           //순위 존재
         }
+        else{//순위 없을때 다시 순위 배치 바 어레이2 업데이트
+            for(int i=0;i<bar_ary.size();i++){
+                for(int j=0;j<bar_ary.size();j++){
+                    if(bar_ary2.get(i).getName().equals(bar_ary.get(j).getName())){
+                        bar_ary2.set(i,bar_ary.get(j));
+                    }else{continue;}
+                }
+            }
+        }
+        bar_pub_rank_lv=(ListView)findViewById(R.id.bar_pub_rank_lv);
+        radp = new RankAdapter();
 
         bar_pub_rank_lv.setAdapter(radp);
         //선택 리스너
@@ -59,9 +70,16 @@ public class RankActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(requestCode==100){
             BarItem item =(BarItem)data.getSerializableExtra("item");
-            for(int i=0;i<bar_ary.size();i++){
-                if(bar_ary.get(i).getName().equals(item.getName())){
-                    bar_ary.set(i,item );
+            for(int i=0;i<bar_ary2.size();i++){
+                if(bar_ary2.get(i).getName().equals(item.getName())){
+                    bar_ary2.set(i,item );
+                    for(int a=0;a<bar_ary.size();a++){
+                        for(int b=0;b<bar_ary.size();b++){
+                            if(bar_ary.get(i).getName().equals(bar_ary2.get(b).getName())){
+                                bar_ary.set(i,bar_ary2.get(b));
+                            }else{continue;}
+                        }
+                    }
                     saveBar();
                     radp.notifyDataSetChanged();
                 } else{continue;}
@@ -162,26 +180,26 @@ public class RankActivity extends AppCompatActivity {
 
 
         //순서 == 순위
-        bar_ary.add(list5);
-        bar_ary.add(list2);
-        bar_ary.add(list3);
-        bar_ary.add(list1);
-        bar_ary.add(list4);
-        bar_ary.add(list10);
-        bar_ary.add(list6);
-        bar_ary.add(list7);
-        bar_ary.add(list8);
-        bar_ary.add(list9);
-        bar_ary.add(list15);
-        bar_ary.add(list11);
-        bar_ary.add(list12);
-        bar_ary.add(list13);
-        bar_ary.add(list14);
-        bar_ary.add(list19);
-        bar_ary.add(list16);
-        bar_ary.add(list18);
-        bar_ary.add(list20);
-        bar_ary.add(list17);
+        bar_ary2.add(list5);
+        bar_ary2.add(list2);
+        bar_ary2.add(list3);
+        bar_ary2.add(list1);
+        bar_ary2.add(list4);
+        bar_ary2.add(list10);
+        bar_ary2.add(list6);
+        bar_ary2.add(list7);
+        bar_ary2.add(list8);
+        bar_ary2.add(list9);
+        bar_ary2.add(list15);
+        bar_ary2.add(list11);
+        bar_ary2.add(list12);
+        bar_ary2.add(list13);
+        bar_ary2.add(list14);
+        bar_ary2.add(list19);
+        bar_ary2.add(list16);
+        bar_ary2.add(list18);
+        bar_ary2.add(list20);
+        bar_ary2.add(list17);
 
     }
 
@@ -189,16 +207,16 @@ public class RankActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return bar_ary.size();
+            return bar_ary2.size();
         }
 
         public void addItem(BarItem item) {
-            bar_ary.add(item);
+            bar_ary2.add(item);
         }
 
         @Override
         public Object getItem(int position) {
-            return bar_ary.get(position);
+            return bar_ary2.get(position);
         }
 
         @Override
@@ -210,7 +228,7 @@ public class RankActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup viewGroup) {
             BarItemView view = new BarItemView(getApplicationContext());
 
-            BarItem item = bar_ary.get(position);
+            BarItem item = bar_ary2.get(position);
             view.setName(item.getName());
             view.setAddress(item.getAddress());
             view.setScore(item.getScore());

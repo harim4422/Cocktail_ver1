@@ -10,6 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="cursive"
         android:gravity="top"
         android:text="MENU"
         android:textAlignment="center"
@@ -35,8 +36,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/background_light"
                 android:onClick="click_bar"
-                android:scaleType="centerInside"
-                android:src="@drawable/restraunt" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/bar_ic" />
 
             <ImageButton
                 android:id="@+id/menu_cocktail_btn"
@@ -45,8 +46,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/background_light"
                 android:onClick="click_cocktail"
-                android:scaleType="centerInside"
-                android:src="@drawable/cocktail0" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/cocktail_ic2" />
 
             <ImageButton
                 android:id="@+id/menu_recipe_btn"
@@ -56,7 +57,7 @@
                 android:background="@android:color/background_light"
                 android:onClick="click_recipe"
                 android:scaleType="centerInside"
-                android:src="@drawable/recipe0" />
+                android:src="@drawable/reci_ic" />
         </LinearLayout>
 
         <LinearLayout
@@ -69,6 +70,7 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:text="Bar"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -79,6 +81,7 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:text="Cocktail"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -89,6 +92,7 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:text="Recipe"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -107,8 +111,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/background_light"
                 android:onClick="click_facebook"
-                android:scaleType="centerInside"
-                android:src="@drawable/fb1" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/fb_ic" />
 
             <ImageButton
                 android:id="@+id/menu_set_btn"
@@ -118,7 +122,7 @@
                 android:background="@android:color/background_light"
                 android:onClick="click_set"
                 android:scaleType="centerInside"
-                android:src="@drawable/set1" />
+                android:src="@drawable/set_ic" />
 
             <ImageButton
                 android:id="@+id/menu_help_btn"
@@ -128,7 +132,7 @@
                 android:background="@android:color/background_light"
                 android:onClick="click_help"
                 android:scaleType="centerInside"
-                android:src="@drawable/help0" />
+                android:src="@drawable/info_ic" />
         </LinearLayout>
 
         <LinearLayout
@@ -141,6 +145,7 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:text="FaceBook"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -151,6 +156,7 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:text="Setting"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -161,6 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="casual"
                 android:text="Help"
                 android:textAlignment="center"
                 android:textSize="30sp"
@@ -171,7 +178,8 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@Copyright 멀티칵테일"
+            android:fontFamily="casual"
+            android:text="@Copyright MultiCocktail"
             android:textAlignment="center"
             android:textColor="@android:color/holo_purple"
             android:textSize="30sp"

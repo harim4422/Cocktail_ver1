@@ -59,12 +59,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
+        SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
         String ad = (String)getIntent().getStringExtra("add");
         if(ad!=null){
-
-
-
             Geocoder mCoder = new Geocoder(this);
             try{
                 List<Address> addr = mCoder.getFromLocationName(ad, 1);
@@ -76,17 +74,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
         } else{
             bus = new LatLng(37.582037, 127.001892);
+            barname1="헤화";
         }
-
-
-
 
 
 
@@ -96,9 +91,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
     }
 
     @Override
@@ -138,14 +130,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
 
-        mMap.addMarker(new MarkerOptions().position(bus).title(barname1));
+
+        mMap.addMarker(new MarkerOptions().position(bus).title(barname1)).showInfoWindow();
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(
                 bus   // 위도, 경도
         ));
 
         CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
-        googleMap.animateCamera(zoom);
+        mMap.animateCamera(zoom);
+
+
+
 
 
 
@@ -198,11 +194,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         switch(v.getId())
         {
-
-
-
-
-            case R.id.B_hopistals:
+            /*case R.id.B_hopistals:
                 mMap.clear();
                 String hospital = "hospital";
                 String url = getUrl(latitude, longitude, hospital);
@@ -211,10 +203,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 getNearbyPlacesData.execute(dataTransfer);
                 Toast.makeText(MapsActivity.this, "Showing Nearby Hospitals", Toast.LENGTH_SHORT).show();
-                break;
+                break;*/
 
             case R.id.B_cocktail:
                 mMap.clear();
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(37.582037, 127.001892)));
+                CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
+                mMap.animateCamera(zoom);
 
                 // Add a marker in Sydney and move the camera
                 LatLng Germanyhouse = new LatLng(37.582915, 127.000523);

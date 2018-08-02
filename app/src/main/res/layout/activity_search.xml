@@ -9,15 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_dark"
+        android:fontFamily="casual"
         android:text="Search"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="50sp"
+        android:textSize="45sp"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="765dp"
+        android:layout_height="750dp"
         android:orientation="vertical">
 
         <EditText

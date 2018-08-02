@@ -19,10 +19,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_red_light"
-                android:text="칵테일 정보"
+                android:fontFamily="casual"
+                android:text="Cocktail Info"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
-                android:textSize="50sp"
+                android:textSize="45sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -55,6 +56,7 @@
                         android:id="@+id/cocktail_name_tv"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:fontFamily="casual"
                         android:textAlignment="center"
                         android:textSize="45sp"
                         android:textStyle="bold" />
@@ -72,7 +74,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_blue_bright"
-                    android:text="만드는법"
+                    android:fontFamily="casual"
+                    android:text="Recipe"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_light"
                     android:textSize="30sp"
@@ -111,7 +114,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@android:color/holo_orange_light"
-                        android:text="만드는법 동영상"
+                        android:fontFamily="casual"
+                        android:text="Recipe Video"
                         android:textAlignment="center"
                         android:textColor="@android:color/background_light"
                         android:textSize="45sp"

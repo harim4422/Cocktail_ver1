@@ -21,8 +21,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent load = new Intent(this,LoadingActivity.class);
-        startActivity(load);
+            Intent load = new Intent(this, LoadingActivity.class);
+            load.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            startActivity(load);
+
 
         today_bar_image = (ImageView)findViewById(R.id.today_bar_image);
         today_cocktail_image = (ImageView)findViewById(R.id.today_cocktail_image);
