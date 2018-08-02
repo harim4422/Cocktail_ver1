@@ -2,6 +2,8 @@ package and.harim.com.cocktail;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,17 +15,22 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class SearchActivity extends AppCompatActivity {
 
-    private ArrayList<BarItem> list;          // 데이터를 넣은 리스트변수
     private ListView listView;          // 검색을 보여줄 리스트변수
     private EditText editSearch;        // 검색어를 입력할 Input 창
     private SearchAdapter adapter;      // 리스트뷰에 연결할 아답터
     private ArrayList<BarItem> arraylist;
+    private ArrayList<BarItem> bar_ary;
 
 
 
@@ -38,18 +45,25 @@ public class SearchActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
 
         // 리스트를 생성한다.
-        list = new ArrayList<BarItem>();
-
-
-        // 검색에 사용할 데이터을 미리 저장한다.
-        settingList();
+        bar_ary = new ArrayList<BarItem>();
+        SharedPreferences pref = getPreferences(MODE_PRIVATE);
+        String s = pref.getString("bar_ary",null);
+        Type objType = new TypeToken<ArrayList<BarItem>>() {
+        }.getType();
+        Gson gson = new GsonBuilder().create();
+        bar_ary = gson.fromJson(s, objType);
+        if(bar_ary==null) {
+            bar_ary = new ArrayList<>();
+            settingList();
+            saveBar();
+        }
 
         // 리스트의 모든 데이터를 arraylist에 복사한다.// list 복사본을 만든다.
         arraylist = new ArrayList<BarItem>();
-        arraylist.addAll(list);
+        arraylist.addAll(bar_ary);
 
         // 리스트에 연동될 아답터를 생성한다.
-        adapter = new SearchAdapter(list, this);
+        adapter = new SearchAdapter(bar_ary, this);
 
         // 리스트뷰에 아답터를 연결한다.
         listView.setAdapter(adapter);
@@ -79,26 +93,44 @@ public class SearchActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),item.toString(),Toast.LENGTH_SHORT).show();
                 Intent barinfo = new Intent(SearchActivity.this,BarInfoActivity.class);
                 barinfo.putExtra("item",item);
-                startActivity(barinfo);
+                startActivityForResult(barinfo,100);
             }
         };
         listView.setOnItemClickListener(searchClickListener);
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode==100){
+            BarItem item =(BarItem)data.getSerializableExtra("item");
+            for(int i=0;i<bar_ary.size();i++){
+                if(bar_ary.get(i).getName().equals(item.getName())){
+                    bar_ary.set(i,item );
+                    saveBar();
+                    adapter.notifyDataSetChanged();
+                } else{continue;}
+            }
+        }
+    }
 
-
-
-
+    private void saveBar() {
+        SharedPreferences pref = getPreferences(MODE_PRIVATE);
+        Gson gson = new GsonBuilder().create();
+        String s = gson.toJson(bar_ary);
+        SharedPreferences.Editor edit = pref.edit();
+        edit.putString("bar_ary",s);//문자열저장
+        edit.commit();//시스템에 반영
     }
 
     // 검색을 수행하는 메소드
     public void search(String charText) {
 
         // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
-        list.clear();
+        bar_ary.clear();
 
         // 문자 입력이 없을때는 모든 데이터를 보여준다.
         if (charText.length() == 0) {
-            list.addAll(arraylist);
+            bar_ary.addAll(arraylist);
         }
         // 문자 입력을 할때..
         else
@@ -110,7 +142,7 @@ public class SearchActivity extends AppCompatActivity {
                 if (arraylist.get(i).getName().toLowerCase().contains(charText))
                 {
                     // 검색된 데이터를 리스트에 추가한다.
-                    list.add(arraylist.get(i));
+                    bar_ary.add(arraylist.get(i));
                 }
             }
         }
@@ -202,26 +234,26 @@ public class SearchActivity extends AppCompatActivity {
         list20.setMenu(list20_menu);
 
         //연결
-        list.add(list1);
-        list.add(list2);
-        list.add(list3);
-        list.add(list4);
-        list.add(list5);
-        list.add(list6);
-        list.add(list7);
-        list.add(list8);
-        list.add(list9);
-        list.add(list10);
-        list.add(list11);
-        list.add(list12);
-        list.add(list13);
-        list.add(list14);
-        list.add(list15);
-        list.add(list16);
-        list.add(list17);
-        list.add(list18);
-        list.add(list19);
-        list.add(list20);
+        bar_ary.add(list1);
+        bar_ary.add(list2);
+        bar_ary.add(list3);
+        bar_ary.add(list4);
+        bar_ary.add(list5);
+        bar_ary.add(list6);
+        bar_ary.add(list7);
+        bar_ary.add(list8);
+        bar_ary.add(list9);
+        bar_ary.add(list10);
+        bar_ary.add(list11);
+        bar_ary.add(list12);
+        bar_ary.add(list13);
+        bar_ary.add(list14);
+        bar_ary.add(list15);
+        bar_ary.add(list16);
+        bar_ary.add(list17);
+        bar_ary.add(list18);
+        bar_ary.add(list19);
+        bar_ary.add(list20);
 
     }
     public void click_back(View view) {

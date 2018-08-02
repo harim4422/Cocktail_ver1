@@ -74,39 +74,65 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/holo_green_dark"
-                android:text="정보"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_light"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="300dp"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_launcher_round" />
+                    android:background="@android:color/holo_green_dark"
+                    android:text="후기"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_launcher_round" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_launcher_round" />
+                    <ListView
+                        android:id="@+id/ep_lv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/ep_name"
+                        android:layout_width="15dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="이름을 입력해주세요"
+                        android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/ep_et"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="후기를 입력해주세요"
+                        android:inputType="textPersonName" />
+
+                    <Button
+                        android:id="@+id/ep_btn"
+                        android:layout_width="15dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="click_resist"
+                        android:text="등록" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout

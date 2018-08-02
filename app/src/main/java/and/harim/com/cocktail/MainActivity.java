@@ -29,11 +29,37 @@ public class MainActivity extends AppCompatActivity {
         today_bar_tv =(TextView)findViewById(R.id.today_bar_tv);
         today_cocktail_tv =(TextView)findViewById(R.id.today_cocktail_tv);
 
-        today_bar_image.setImageResource(R.drawable.dockiljuteak);
-        today_cocktail_image.setImageResource(R.drawable.applemartini);
+        today_bar_image.setImageResource(R.drawable.bar01);
         today_bar_tv.setText("독일주택");
-        today_cocktail_tv.setText("Applemartini");
-        /*today_bar_image.setOnClickListener();*/
+        today_bar_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //투데이 식당 객체 생성
+                BarItem list1 = new BarItem("독일주택","서울 종로구 대명1길 16-4(명륜4가 45-1)",5.0,R.drawable.bar01);
+                String[] list1_menu ={"올드 라스푸틴 - 10000원","스컬핀 - 13000원","슈나이더 마인 호펜바이세 탭 - 12000원","독일플레이트 - 8000원"};
+                list1.setMenu(list1_menu);
+                Intent intent = new Intent(MainActivity.this,BarInfoActivity.class);
+                intent.putExtra("item",list1);
+                startActivity(intent);
+
+            }
+        });
+        today_cocktail_tv.setText("BlackRussian");
+        today_cocktail_image.setImageResource(R.drawable.list2_1);
+        today_cocktail_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //투데이 칵테일 객체 생성
+                CocktailItem list2 = new CocktailItem("BlackRussian",R.drawable.list2_1);
+                list2.setWofy_id(R.drawable.list2_2);
+                list2.setRecipe_id(R.drawable.list2_3);
+                list2.setVideo("https://www.youtube.com/watch?v=vr7qXrdnpPE");
+                Intent intent = new Intent(MainActivity.this,CocktailInfoActivity.class);
+                intent.putExtra("cock",list2);
+                startActivity(intent);
+            }
+        });
+
 
 
 

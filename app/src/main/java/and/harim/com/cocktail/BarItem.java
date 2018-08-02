@@ -6,22 +6,23 @@ import java.util.ArrayList;
 
 public class BarItem implements Serializable{
 
-    String name;
-    String address;
-    double score;
-    int resId;
-    String[] menu;
+            String name;
+            String address;
+            double score;
+            int resId;
+            String[] menu;
+            ArrayList<EpItem> ep_AL= new ArrayList<>();
 
     public BarItem(String name, String address) {
-        this.name = name;
-        this.address = address;
-    }
+                this.name = name;
+                this.address = address;
+            }
 
     public BarItem(String name, String address, double score, int resId) {
-        this.name = name;
-        this.address = address;
-        this.score = score;
-        this.resId = resId;
+                this.name = name;
+                this.address = address;
+                this.score = score;
+                this.resId = resId;
     }
 
     public double getScore() { return score; }
@@ -53,5 +54,8 @@ public class BarItem implements Serializable{
     public void setMenu(String[] menu){this.menu=menu;}
     public String[] getMenu(){return menu;}
 
+    public ArrayList<EpItem> getEp_AL() {
+        return ep_AL;
+    }
 
 }
