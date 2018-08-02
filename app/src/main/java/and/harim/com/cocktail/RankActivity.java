@@ -1,6 +1,8 @@
 package and.harim.com.cocktail;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,20 +11,38 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class RankActivity extends AppCompatActivity {
     ListView bar_pub_rank_lv;
     RankAdapter radp;
+    ArrayList<BarItem> bar_ary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
-
-        bar_pub_rank_lv = (ListView)findViewById(R.id.bar_pub_rank_lv);
         radp = new RankAdapter();
-        settingRankListView();
+        bar_pub_rank_lv = (ListView)findViewById(R.id.bar_pub_rank_lv);
+        bar_ary = new ArrayList<BarItem>();
+        SharedPreferences pref = getPreferences(MODE_PRIVATE);
+        String s = pref.getString("bar_ary",null);
+        Type objType = new TypeToken<ArrayList<BarItem>>() {
+        }.getType();
+        Gson gson = new GsonBuilder().create();
+        bar_ary = gson.fromJson(s, objType);
+        if(bar_ary==null) {
+            bar_ary = new ArrayList<>();
+            settingRankListView();
+            saveBar();
+        }
+
+        bar_pub_rank_lv.setAdapter(radp);
         //선택 리스너
         final AdapterView.OnItemClickListener barlistClickListener= new AdapterView.OnItemClickListener() {
             @Override
@@ -30,10 +50,32 @@ public class RankActivity extends AppCompatActivity {
                 BarItem item = (BarItem)radp.getItem(i);
                 Intent barinfo = new Intent(RankActivity.this,BarInfoActivity.class);
                 barinfo.putExtra("item",item);
-                startActivity(barinfo);
+                startActivityForResult(barinfo,100);
             }
         };
         bar_pub_rank_lv.setOnItemClickListener(barlistClickListener);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode==100){
+            BarItem item =(BarItem)data.getSerializableExtra("item");
+            for(int i=0;i<bar_ary.size();i++){
+                if(bar_ary.get(i).getName().equals(item.getName())){
+                    bar_ary.set(i,item );
+                    saveBar();
+                    radp.notifyDataSetChanged();
+                } else{continue;}
+            }
+        }
+    }
+
+    private void saveBar() {
+        SharedPreferences pref = getPreferences(MODE_PRIVATE);
+        Gson gson = new GsonBuilder().create();
+        String s = gson.toJson(bar_ary);
+        SharedPreferences.Editor edit = pref.edit();
+        edit.putString("bar_ary",s);//문자열저장
+        edit.commit();//시스템에 반영
     }
 
     private void settingRankListView() {
@@ -120,45 +162,43 @@ public class RankActivity extends AppCompatActivity {
 
 
         //순서 == 순위
-        radp.addItem(list5);
-        radp.addItem(list2);
-        radp.addItem(list3);
-        radp.addItem(list1);
-        radp.addItem(list4);
-        radp.addItem(list10);
-        radp.addItem(list6);
-        radp.addItem(list7);
-        radp.addItem(list8);
-        radp.addItem(list9);
-        radp.addItem(list15);
-        radp.addItem(list11);
-        radp.addItem(list12);
-        radp.addItem(list13);
-        radp.addItem(list14);
-        radp.addItem(list19);
-        radp.addItem(list16);
-        radp.addItem(list18);
-        radp.addItem(list20);
-        radp.addItem(list17);
+        bar_ary.add(list5);
+        bar_ary.add(list2);
+        bar_ary.add(list3);
+        bar_ary.add(list1);
+        bar_ary.add(list4);
+        bar_ary.add(list10);
+        bar_ary.add(list6);
+        bar_ary.add(list7);
+        bar_ary.add(list8);
+        bar_ary.add(list9);
+        bar_ary.add(list15);
+        bar_ary.add(list11);
+        bar_ary.add(list12);
+        bar_ary.add(list13);
+        bar_ary.add(list14);
+        bar_ary.add(list19);
+        bar_ary.add(list16);
+        bar_ary.add(list18);
+        bar_ary.add(list20);
+        bar_ary.add(list17);
 
-        bar_pub_rank_lv.setAdapter(radp);
     }
 
     public class RankAdapter extends BaseAdapter {
-        ArrayList<BarItem> items = new ArrayList<BarItem>();
 
         @Override
         public int getCount() {
-            return items.size();
+            return bar_ary.size();
         }
 
         public void addItem(BarItem item) {
-            items.add(item);
+            bar_ary.add(item);
         }
 
         @Override
         public Object getItem(int position) {
-            return items.get(position);
+            return bar_ary.get(position);
         }
 
         @Override
@@ -170,7 +210,7 @@ public class RankActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup viewGroup) {
             BarItemView view = new BarItemView(getApplicationContext());
 
-            BarItem item = items.get(position);
+            BarItem item = bar_ary.get(position);
             view.setName(item.getName());
             view.setAddress(item.getAddress());
             view.setScore(item.getScore());

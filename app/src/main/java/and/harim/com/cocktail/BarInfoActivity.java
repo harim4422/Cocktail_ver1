@@ -140,6 +140,8 @@ public class BarInfoActivity extends AppCompatActivity {
         }
         bar_ep.add(ei);
         ep_adp.notifyDataSetChanged();//화면 갱신
+        ep_name.setText("");
+        ep_et.setText("");
 
         //로딩
         SharedPreferences pref = getPreferences(MODE_PRIVATE);
